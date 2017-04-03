@@ -1,5 +1,5 @@
 {
-  "name": "react-webpack-rails-tutorial",
+  "name": "givelightCRM",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -16,6 +16,7 @@
     "client/node_modules"
   ],
   "dependencies": {
+    "actioncable": "^5.0.2",
     "axios": "^0.15.3",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
@@ -27,10 +28,13 @@
     "babel-runtime": "^6.23.0",
     "es5-shim": "^4.5.9",
     "expose-loader": "^0.7.3",
+    "immutable": "^3.8.1",
     "imports-loader": "^0.7.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-on-rails": "6.8.0",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
     "webpack": "^2.2.1"
   },
   "devDependencies": {}

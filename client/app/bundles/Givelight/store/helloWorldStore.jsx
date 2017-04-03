@@ -1,8 +1,22 @@
-import { createStore } from 'redux';
-import helloWorldReducer from '../reducers/helloWorldReducer';
+import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import loggerMiddleware from '../../libs/middlewares/loggerMiddleware';
+import reducers, { initialStates } from '../reducers';
 
-const configureStore = (railsProps) => (
-  createStore(helloWorldReducer, railsProps)
-);
+export default (props, railsContext) => {
+  const initialUsers = props.users;
+  const { $$usersState } = initialStates;
+  const initialState = {
+    $$usersStore: $$usersState.merge({
+      $$users: initialUsers,
+    }),
+    railsContext,
+  };
 
-export default configureStore;
+  const reducer = combineReducers(reducers);
+  const composedStore = compose(
+    applyMiddleware(thunkMiddleware, loggerMiddleware),
+  );
+
+  return composedStore(createStore)(reducer, initialState);
+};
