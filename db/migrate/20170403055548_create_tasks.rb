@@ -10,5 +10,6 @@ class CreateTasks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_reference :tasks, :user, index: true, foreign_key: true
   end
 end

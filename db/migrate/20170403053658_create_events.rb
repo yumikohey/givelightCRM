@@ -9,7 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :string
       t.string :country
       t.string :zip_code
-      t.integer :host_user_id
+      t.integer :owner_user_id
 
       t.timestamps
     end

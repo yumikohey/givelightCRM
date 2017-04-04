@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   after_create :send_admin_mail
 
+  has_many :events, through: :attendants
+  has_many :tasks
+  belongs_to :department
+
   def default_role
   	self.role ||= 'volunteer'
   end
